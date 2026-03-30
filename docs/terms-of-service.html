@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service for CarOtter, an iPhone and iPad app for vehicle health, service history, fuel logs, and OBD-II diagnostics.">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="assets/carotter-logo.png">
+    <title>CarOtter Terms of Service</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --surface: #ffffff;
+            --text: #1d1d1f;
+            --text-muted: #6e6e73;
+            --line: rgba(29, 29, 31, 0.12);
+            --accent: #0a84ff;
+            --accent-soft: rgba(10, 132, 255, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --surface: #000000;
+                --text: #f5f5f7;
+                --text-muted: #a1a1a6;
+                --line: rgba(255, 255, 255, 0.14);
+                --accent: #2997ff;
+                --accent-soft: rgba(41, 151, 255, 0.16);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            line-height: 1.72;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration-thickness: 0.08em;
+            text-underline-offset: 0.18em;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 28px 20px 56px;
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .brand-name {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+
+        .brand-subtitle {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        .nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover,
+        .nav a[aria-current="page"] {
+            color: var(--text);
+        }
+
+        .hero {
+            padding: 34px 0 24px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.35rem, 6vw, 3.55rem);
+            line-height: 1.06;
+            letter-spacing: -0.035em;
+            font-weight: 700;
+        }
+
+        .updated {
+            margin-top: 14px;
+            font-size: 0.97rem;
+            color: var(--text-muted);
+        }
+
+        .lede {
+            margin-top: 18px;
+            font-size: 1.08rem;
+            color: var(--text-muted);
+        }
+
+        .notice {
+            margin-top: 22px;
+            padding: 16px 18px;
+            border-radius: 16px;
+            background: var(--accent-soft);
+            border: 1px solid var(--line);
+            color: var(--text-muted);
+        }
+
+        .content {
+            border-top: 1px solid var(--line);
+        }
+
+        .section {
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section h2 {
+            margin: 0 0 12px;
+            font-size: 1.38rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        p + p {
+            margin-top: 12px;
+        }
+
+        ul {
+            margin: 14px 0 0;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        li + li {
+            margin-top: 10px;
+        }
+
+        strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .footer {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 24px;
+        }
+
+        .footer-meta {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+        }
+
+        .footer-meta p + p {
+            margin-top: 6px;
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                padding: 20px 16px 40px;
+            }
+
+            .site-header,
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav {
+                gap: 14px;
+            }
+
+            .hero {
+                padding: 28px 0 20px;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            .lede {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 24px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="site-header">
+            <div class="brand" aria-label="CarOtter Terms of Service">
+                <img class="brand-logo" src="assets/carotter-logo.png" alt="CarOtter logo">
+                <span class="brand-text">
+                    <span class="brand-name">CarOtter</span>
+                    <span class="brand-subtitle">Terms of Service</span>
+                </span>
+            </div>
+            <nav class="nav" aria-label="Legal">
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="terms-of-service.html" aria-current="page">Terms</a>
+            </nav>
+        </header>
+
+        <section class="hero" aria-labelledby="terms-title">
+            <h1 id="terms-title">Terms of Service</h1>
+            <p class="updated">Last Updated: March 29, 2026</p>
+            <p class="lede">
+                These Terms of Service govern your use of CarOtter, an app for iPhone and iPad that
+                helps you track vehicle information, service history, fuel history, and OBD-II
+                diagnostics. By downloading, accessing, or using CarOtter, you agree to these Terms.
+                If you do not agree, do not use the app.
+            </p>
+            <div class="notice">
+                CarOtter is currently provided free of charge and may include experimental or beta
+                features. It is offered as a convenience tool, not as a replacement for professional
+                automotive, safety, legal, or emergency advice.
+            </div>
+        </section>
+
+        <article class="content">
+            <section class="section" id="license">
+                <h2>1. License and Permitted Use</h2>
+                <p>Subject to these Terms, you are granted a limited, personal, non-exclusive, non-transferable, revocable license to use CarOtter for your own lawful, non-commercial use on devices you own or control.</p>
+                <p>You may not copy, sell, sublicense, redistribute, reverse engineer, modify, interfere with, or misuse CarOtter except as permitted by applicable law.</p>
+            </section>
+
+            <section class="section" id="eligibility">
+                <h2>2. Eligibility and Compliance</h2>
+                <p>You are responsible for using CarOtter in compliance with applicable laws, regulations, and third-party terms that apply to your use of your device, vehicle, OBD adapter, and selected service providers.</p>
+                <p>You may use CarOtter only if you can legally form a binding agreement under applicable law.</p>
+            </section>
+
+            <section class="section" id="safety">
+                <h2>3. Safety and Vehicle Responsibility</h2>
+                <p>CarOtter is not designed for use while driving. Do not view, type, scan, troubleshoot, or otherwise interact with the app while operating a vehicle.</p>
+                <p>You are solely responsible for vehicle operation, maintenance, repair, inspection, emissions compliance, and safety decisions. Any reminders, interpretations, summaries, or recommendations shown by CarOtter are informational only.</p>
+            </section>
+
+            <section class="section" id="limitations">
+                <h2>4. Diagnostics, AI, and Scan Limitations</h2>
+                <p>CarOtter depends on information from your device, your vehicle, third-party hardware, and third-party services. Because of that, outputs may be incomplete, delayed, inconsistent, or incorrect.</p>
+                <ul>
+                    <li><strong>OBD-II and vehicle data</strong> may vary by vehicle, adapter, network, ECU support, sensor behavior, and manufacturer-specific implementations.</li>
+                    <li><strong>AI-generated outputs</strong> may be inaccurate, incomplete, outdated, or unsuitable for your situation and must be independently reviewed before you rely on them.</li>
+                    <li><strong>VIN, OCR, receipt, odometer, and document scans</strong> may misread content, omit details, or produce incorrect extracted values.</li>
+                </ul>
+                <p>CarOtter does not guarantee that any diagnostic result, maintenance suggestion, readiness status, service extraction, or AI response is accurate or fit for a particular purpose.</p>
+            </section>
+
+            <section class="section" id="no-professional-advice">
+                <h2>5. No Professional Automotive or Safety Advice</h2>
+                <p>CarOtter does not provide mechanic, dealership, engineering, inspection, emissions, recall, legal, insurance, or emergency services. Nothing in the app constitutes professional advice or a warranty about the condition, roadworthiness, legality, or safety of any vehicle.</p>
+                <p>If you suspect a safety issue, mechanical failure, recall issue, or emergency condition, stop using the app as a decision-making substitute and consult a qualified professional or emergency services as appropriate.</p>
+            </section>
+
+            <section class="section" id="third-party">
+                <h2>6. Third-Party Services and Hardware</h2>
+                <p>Some CarOtter features rely on third parties or third-party hardware, including Apple Sign In, Apple speech services, NHTSA VIN decoding, OpenAI, Google Gemini, and compatible Bluetooth OBD-II adapters.</p>
+                <ul>
+                    <li>You are responsible for complying with the terms, privacy policies, and usage rules of any third-party service or hardware you choose to use.</li>
+                    <li>If you provide your own AI API key, you are responsible for that key, any usage charges, and any data you choose to send through those services.</li>
+                    <li>CarOtter is not responsible for third-party outages, policy changes, hardware failures, billing, retention practices, or output quality.</li>
+                </ul>
+            </section>
+
+            <section class="section" id="privacy">
+                <h2>7. Privacy</h2>
+                <p>Your use of CarOtter is also subject to the <a href="privacy-policy.html">Privacy Policy</a>, which explains how information is handled in the app.</p>
+            </section>
+
+            <section class="section" id="availability">
+                <h2>8. Availability, Updates, and Support</h2>
+                <p>CarOtter is currently offered free of charge and may be modified, limited, suspended, or discontinued at any time, with or without notice. Features may change, move behind new requirements, or stop working due to app updates, OS changes, service changes, or hardware changes.</p>
+                <p>No guaranteed support, maintenance, uptime commitment, or service level is provided unless expressly stated otherwise in writing.</p>
+            </section>
+
+            <section class="section" id="ownership">
+                <h2>9. Ownership</h2>
+                <p>CarOtter and its associated design, text, code, branding, and other app content are protected by intellectual property laws. Except for the limited license above, no rights are granted to you.</p>
+            </section>
+
+            <section class="section" id="warranty">
+                <h2>10. Disclaimer of Warranties</h2>
+                <p>To the maximum extent permitted by applicable law, CarOtter is provided “as is” and “as available,” without warranties of any kind, express or implied, including implied warranties of merchantability, fitness for a particular purpose, accuracy, availability, non-infringement, and quiet enjoyment.</p>
+                <p>Nothing in these Terms is intended to limit any non-waivable rights you may have under applicable consumer protection law.</p>
+            </section>
+
+            <section class="section" id="liability">
+                <h2>11. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, CarOtter and its developer will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for any loss of profits, revenue, data, goodwill, vehicle value, business opportunity, or use.</p>
+                <p>To the maximum extent permitted by applicable law, CarOtter and its developer will also not be liable for accidents, vehicle damage, missed maintenance, failed inspections, emissions or readiness results, incorrect diagnostics, third-party service failures, adapter failures, or decisions you make based on app output.</p>
+            </section>
+
+            <section class="section" id="indemnity">
+                <h2>12. Indemnity</h2>
+                <p>To the extent permitted by applicable law, you agree to indemnify and hold harmless CarOtter and its developer from claims, losses, liabilities, damages, and expenses arising out of your misuse of the app, your violation of these Terms, your violation of applicable law, or your use of third-party services or hardware in connection with CarOtter.</p>
+            </section>
+
+            <section class="section" id="termination">
+                <h2>13. Termination</h2>
+                <p>These Terms apply until terminated. Your right to use CarOtter ends automatically if you violate these Terms. You may also stop using the app at any time by removing it from your device.</p>
+            </section>
+
+            <section class="section" id="apple">
+                <h2>14. Additional Apple App Store Terms</h2>
+                <p>If you downloaded CarOtter through Apple's App Store or TestFlight, you acknowledge that these Terms are between you and CarOtter, not Apple, and that Apple is not responsible for CarOtter or its content.</p>
+                <ul>
+                    <li>The license granted to you is limited to use of CarOtter on Apple-branded products that you own or control and as permitted by the App Store usage rules.</li>
+                    <li>Apple has no obligation to provide maintenance or support services for CarOtter.</li>
+                    <li>Apple is not responsible for addressing claims relating to the app, including product liability claims, regulatory claims, or claims under consumer protection law, except as required by law.</li>
+                    <li>Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them against you.</li>
+                </ul>
+            </section>
+
+            <section class="section" id="changes">
+                <h2>15. Changes to These Terms</h2>
+                <p>These Terms may be updated from time to time. If they are updated, this page will be revised and the Last Updated date above will be changed. Your continued use of CarOtter after an update means you accept the revised Terms.</p>
+            </section>
+
+            <section class="section" id="contact">
+                <h2>16. Contact</h2>
+                <p>If you have questions about these Terms of Service, contact <a href="mailto:divyanshugoyal.g25@gmail.com">divyanshugoyal.g25@gmail.com</a>.</p>
+            </section>
+        </article>
+
+        <footer class="footer">
+            <div class="brand" aria-label="CarOtter Terms of Service footer">
+                <img class="brand-logo" src="assets/carotter-logo.png" alt="CarOtter logo">
+                <span class="brand-text">
+                    <span class="brand-name">CarOtter</span>
+                    <span class="brand-subtitle">Vehicle companion for iPhone and iPad</span>
+                </span>
+            </div>
+            <div class="footer-meta">
+                <p>CarOtter Terms of Service</p>
+                <p>Effective date: March 29, 2026</p>
+                <p><a href="privacy-policy.html">Privacy Policy</a></p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

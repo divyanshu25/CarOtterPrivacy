@@ -112,14 +112,27 @@
         }
 
         .nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 36px;
+            padding: 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.95rem;
         }
 
-        .nav a:hover,
+        .nav a:hover {
+            color: var(--text);
+            background: var(--accent-soft);
+        }
+
         .nav a[aria-current="page"] {
             color: var(--text);
+            background: var(--accent-soft);
         }
 
         .hero {
@@ -270,18 +283,19 @@
             <p class="lede">
                 This Privacy Policy describes how information is handled in CarOtter for iPhone and iPad.
                 CarOtter is designed to keep information on your device whenever possible and to be clear
-                about the limited cases where information is sent to third-party services at your direction.
+                about the limited cases where information is sent directly from your device to third-party
+                services you choose to use.
             </p>
             <div class="notice">
-                CarOtter does not operate its own cloud backend for app data, does not run advertising
-                trackers, and does not sell your personal information.
+                CarOtter does not collect or store your app data on developer-operated servers, does not
+                run analytics or advertising trackers, and does not sell your personal information.
             </div>
         </section>
 
         <article class="content">
             <section class="section" id="collect">
-                <h2>Information Stored or Processed in the App</h2>
-                <p>Depending on the features you use, CarOtter may access, process, and store the following information on your device:</p>
+                <h2>Information Stored or Processed on Your Device</h2>
+                <p>Depending on the features you use, CarOtter may access, process, and store the following information locally on your device:</p>
                 <ul>
                     <li><strong>Apple Sign In information</strong>, including your Apple user identifier and, when Apple provides it, your name and email address for account authentication.</li>
                     <li><strong>Vehicle information</strong>, including make, model, year, VIN, and garage photo information that you add.</li>
@@ -290,6 +304,16 @@
                     <li><strong>Chat history</strong>, including messages exchanged with the in-app assistant.</li>
                     <li><strong>Images you choose to use</strong>, including receipt photos, vehicle photos, and camera scans used for VIN, odometer, or service-document extraction.</li>
                     <li><strong>Voice input</strong>, including live microphone audio used to convert speech to text when you use voice input.</li>
+                </ul>
+            </section>
+
+            <section class="section" id="no-backend">
+                <h2>What CarOtter Does Not Do</h2>
+                <ul>
+                    <li>CarOtter does not create a developer-hosted account database for your vehicle records, service history, fuel logs, diagnostics, or chats.</li>
+                    <li>CarOtter does not upload your routine app data to developer-operated servers.</li>
+                    <li>CarOtter does not include analytics SDKs, advertising SDKs, cross-app tracking, or marketing profiling tools.</li>
+                    <li>The developer does not have a routine admin dashboard or cloud copy of your on-device app records.</li>
                 </ul>
             </section>
 
@@ -309,16 +333,18 @@
                 <h2>When Information Leaves Your Device</h2>
                 <p>Most CarOtter information stays on your device. Information may leave your device only in the following situations:</p>
                 <ul>
-                    <li><strong>AI-powered features</strong>. If you enable the AI assistant or optional cloud document review and provide your own API key, the information needed for that feature may be sent directly from your device to the provider you choose, currently OpenAI or Google Gemini. This may include prompts, chat context, selected images, OCR text, relevant vehicle context, and redacted service-document previews that you review before sending.</li>
-                    <li><strong>VIN decoding</strong>. If you use VIN lookup, the VIN is sent to the National Highway Traffic Safety Administration (NHTSA) vPIC service to decode vehicle details.</li>
-                    <li><strong>Voice transcription</strong>. If you use voice input, audio or transcription data may be processed by Apple's speech recognition services depending on device capability, language support, and iOS behavior. CarOtter does not store raw audio after transcription.</li>
+                    <li><strong>Sign in with Apple</strong>. When you sign in, Apple handles the authentication request and returns account information to the app. CarOtter does not run a separate developer-hosted account server for this process.</li>
+                    <li><strong>AI-powered features</strong>. If you enable the AI assistant or optional cloud document review and provide your own API key, the information needed for that feature may be sent directly from your device to the provider you choose, currently OpenAI or Google Gemini. This may include prompts, chat context, selected images, OCR text, relevant vehicle context, and redacted service-document previews that you review before sending. These requests are not proxied through developer-operated CarOtter servers.</li>
+                    <li><strong>VIN decoding</strong>. If you use VIN lookup, the VIN is sent directly from your device to the National Highway Traffic Safety Administration (NHTSA) vPIC service to decode vehicle details.</li>
+                    <li><strong>Voice transcription</strong>. If you use voice input, audio or transcription data may be processed by Apple's speech recognition services depending on device capability, language support, and iOS behavior. CarOtter does not store raw audio after transcription, and the developer does not receive raw audio through CarOtter.</li>
+                    <li><strong>Support contact</strong>. If you email the developer directly, your email provider will send your email address and any information you include in that message to the developer.</li>
                 </ul>
                 <p>Many document and image extraction flows can also run locally on your device. When a feature completes on-device, the underlying document, image, and extracted text do not leave your device unless you later choose a cloud-assisted option.</p>
             </section>
 
             <section class="section" id="use">
                 <h2>How Information Is Used</h2>
-                <p>CarOtter uses information only to provide the features you choose to use.</p>
+                <p>CarOtter uses information only to provide the features you choose to use. The developer does not use your app data for advertising, analytics, profiling, or resale.</p>
                 <ul>
                     <li>To display your vehicle profile, service history, fuel history, and diagnostics.</li>
                     <li>To run Bluetooth OBD-II diagnostics and readiness checks.</li>
@@ -336,13 +362,15 @@
                     <li>OBD debug logs are stored in the device cache area and excluded from backups.</li>
                     <li>On-device records remain there until you delete them, erase app data, or remove the app.</li>
                     <li>If you choose an external AI provider, any information sent to that provider is handled under that provider's own terms, privacy policy, and retention practices. CarOtter does not keep a separate cloud copy.</li>
+                    <li>The developer does not have a built-in way to browse or retrieve your stored app records from a CarOtter backend because CarOtter does not operate one for routine app data.</li>
                 </ul>
             </section>
 
             <section class="section" id="sharing">
                 <h2>Sharing and Selling</h2>
                 <p>CarOtter does not sell your personal information and does not share your personal information for advertising, cross-app tracking, or marketing profiling.</p>
-                <p>The only third parties that may receive information are the services you explicitly choose to use through the app, such as your selected AI provider, NHTSA VIN decoding, or Apple's speech recognition services.</p>
+                <p>The developer does not receive or keep a separate server-side copy of your vehicle records, service history, fuel logs, diagnostics, chats, or scans through CarOtter's own systems.</p>
+                <p>The only third parties that may receive information are the services you explicitly choose to use through the app, such as Apple for authentication or speech services, your selected AI provider, or NHTSA for VIN decoding.</p>
             </section>
 
             <section class="section" id="controls">
@@ -358,7 +386,7 @@
 
             <section class="section" id="children">
                 <h2>Children's Privacy</h2>
-                <p>CarOtter is not directed to children under 13, and we do not knowingly collect personal information from children under 13.</p>
+                <p>CarOtter is not directed to children under 13. CarOtter does not provide a developer-operated backend for routine app data, and the developer does not knowingly collect personal information from children through CarOtter's own systems.</p>
             </section>
 
             <section class="section" id="changes">
@@ -369,6 +397,7 @@
             <section class="section" id="contact">
                 <h2>Contact</h2>
                 <p>If you have questions about this Privacy Policy or how CarOtter handles information, contact <a href="mailto:divyanshugoyal.g25@gmail.com">divyanshugoyal.g25@gmail.com</a>.</p>
+                <p>If you contact the developer directly, the developer will receive your email address and any other information you choose to include in your message.</p>
             </section>
         </article>
 
@@ -383,8 +412,6 @@
             <div class="footer-meta">
                 <p>CarOtter Privacy Policy</p>
                 <p>Effective date: March 29, 2026</p>
-                <p><a href="index.html">Legal Home</a></p>
-                <p><a href="terms-of-service.html">Terms of Service</a></p>
             </div>
         </footer>
     </main>

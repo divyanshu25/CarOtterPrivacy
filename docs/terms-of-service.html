@@ -112,14 +112,27 @@
         }
 
         .nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 36px;
+            padding: 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.95rem;
         }
 
-        .nav a:hover,
+        .nav a:hover {
+            color: var(--text);
+            background: var(--accent-soft);
+        }
+
         .nav a[aria-current="page"] {
             color: var(--text);
+            background: var(--accent-soft);
         }
 
         .hero {
@@ -276,7 +289,8 @@
             <div class="notice">
                 CarOtter is currently provided free of charge and may include experimental or beta
                 features. It is offered as a convenience tool, not as a replacement for professional
-                automotive, safety, legal, or emergency advice.
+                automotive, safety, legal, or emergency advice. CarOtter also does not operate a
+                developer-hosted cloud backend for routine app data.
             </div>
         </section>
 
@@ -320,6 +334,7 @@
             <section class="section" id="third-party">
                 <h2>6. Third-Party Services and Hardware</h2>
                 <p>Some CarOtter features rely on third parties or third-party hardware, including Apple Sign In, Apple speech services, NHTSA VIN decoding, OpenAI, Google Gemini, and compatible Bluetooth OBD-II adapters.</p>
+                <p>Except where you choose to use one of those third-party services or contact the developer directly, CarOtter is not intended to transmit your routine vehicle, service, fuel, chat, scan, or diagnostic records to developer-operated servers.</p>
                 <ul>
                     <li>You are responsible for complying with the terms, privacy policies, and usage rules of any third-party service or hardware you choose to use.</li>
                     <li>If you provide your own AI API key, you are responsible for that key, any usage charges, and any data you choose to send through those services.</li>
@@ -329,7 +344,7 @@
 
             <section class="section" id="privacy">
                 <h2>7. Privacy</h2>
-                <p>Your use of CarOtter is also subject to the <a href="privacy-policy.html">Privacy Policy</a>, which explains how information is handled in the app.</p>
+                <p>Your use of CarOtter is also subject to the <a href="privacy-policy.html">Privacy Policy</a>, which explains how information is handled in the app, when information stays on-device, and the limited situations where information is sent directly from your device to third-party services you choose to use.</p>
             </section>
 
             <section class="section" id="availability">
@@ -398,8 +413,6 @@
             <div class="footer-meta">
                 <p>CarOtter Terms of Service</p>
                 <p>Effective date: March 29, 2026</p>
-                <p><a href="index.html">Legal Home</a></p>
-                <p><a href="privacy-policy.html">Privacy Policy</a></p>
             </div>
         </footer>
     </main>

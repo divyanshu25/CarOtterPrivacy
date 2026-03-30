@@ -110,14 +110,27 @@
         }
 
         .nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 36px;
+            padding: 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.95rem;
         }
 
-        .nav a:hover,
+        .nav a:hover {
+            color: var(--text);
+            background: var(--accent-soft);
+        }
+
         .nav a[aria-current="page"] {
             color: var(--text);
+            background: var(--accent-soft);
         }
 
         .hero {
@@ -267,8 +280,9 @@
                 handled in the app and the terms that apply when you use CarOtter.
             </p>
             <div class="notice">
-                CarOtter is currently offered as a free app. The Privacy Policy and Terms of Service
-                are provided here for app distribution, TestFlight, and public reference.
+                CarOtter is currently offered as a free app. It does not operate a developer-hosted
+                backend for routine app data. The Privacy Policy and Terms of Service are provided
+                here for app distribution, TestFlight, and public reference.
             </div>
         </section>
 
@@ -277,8 +291,8 @@
                 <div class="card-label">Privacy</div>
                 <div class="card-title">Privacy Policy</div>
                 <div class="card-copy">
-                    Learn what information CarOtter stores on-device, when data leaves your device,
-                    and what controls you have over your information.
+                    Learn what information CarOtter stores on-device, when information may be sent
+                    directly from your device to third-party services, and what controls you have.
                 </div>
             </a>
             <a class="card" href="terms-of-service.html">
@@ -301,8 +315,6 @@
             </div>
             <div class="footer-meta">
                 <p>CarOtter Legal</p>
-                <p><a href="privacy-policy.html">Privacy Policy</a></p>
-                <p><a href="terms-of-service.html">Terms of Service</a></p>
             </div>
         </footer>
     </main>

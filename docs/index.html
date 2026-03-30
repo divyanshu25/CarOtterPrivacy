@@ -3,37 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for CarOtter, an iPhone and iPad app for vehicle health, service history, fuel logs, and OBD-II diagnostics.">
     <meta name="theme-color" content="#0f2d41">
     <title>CarOtter Privacy Policy</title>
     <style>
         :root {
             color-scheme: light dark;
-            --bg: #f5efe8;
-            --bg-accent: #efe4d8;
-            --card: rgba(255, 252, 248, 0.92);
-            --card-strong: #fffdfb;
-            --text: #102a3c;
-            --text-muted: #5c6a76;
-            --heading: #0b2233;
-            --brand: #d96a42;
-            --brand-soft: rgba(217, 106, 66, 0.12);
-            --line: rgba(16, 42, 60, 0.10);
-            --shadow: 0 24px 60px rgba(14, 34, 48, 0.10);
+            --bg: #ffffff;
+            --surface: #fbfbfd;
+            --surface-strong: #ffffff;
+            --text: #1d1d1f;
+            --text-muted: #6e6e73;
+            --heading: #1d1d1f;
+            --accent: #0066cc;
+            --accent-soft: rgba(0, 102, 204, 0.08);
+            --line: rgba(29, 29, 31, 0.10);
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #0d141b;
-                --bg-accent: #16212b;
-                --card: rgba(20, 28, 36, 0.92);
-                --card-strong: #1a2530;
-                --text: #e8edf2;
-                --text-muted: #aab6c0;
-                --heading: #f7fafc;
-                --brand: #f08a61;
-                --brand-soft: rgba(240, 138, 97, 0.14);
-                --line: rgba(232, 237, 242, 0.10);
-                --shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+                --bg: #000000;
+                --surface: #101113;
+                --surface-strong: #17181b;
+                --text: #f5f5f7;
+                --text-muted: #a1a1a6;
+                --heading: #ffffff;
+                --accent: #2997ff;
+                --accent-soft: rgba(41, 151, 255, 0.14);
+                --line: rgba(255, 255, 255, 0.12);
             }
         }
 
@@ -45,192 +42,172 @@
 
         body {
             min-height: 100vh;
-            font-family: ui-rounded, "SF Pro Rounded", "Avenir Next", "Segoe UI", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
             line-height: 1.7;
             color: var(--text);
-            background:
-                radial-gradient(circle at top left, var(--bg-accent), transparent 34rem),
-                linear-gradient(180deg, var(--bg), var(--bg));
-            padding: 2rem 1rem 3rem;
+            background: var(--bg);
+            padding: 0 1rem 3rem;
         }
 
         .page {
-            max-width: 920px;
+            max-width: 980px;
             margin: 0 auto;
         }
 
-        .hero,
-        .content-card {
-            background: var(--card);
-            backdrop-filter: blur(14px);
-            border: 1px solid var(--line);
-            border-radius: 28px;
-            box-shadow: var(--shadow);
-        }
-
         .hero {
-            overflow: hidden;
-            position: relative;
-            padding: 2.4rem;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top right, var(--brand-soft), transparent 17rem),
-                linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 38%);
-            pointer-events: none;
-        }
-
-        .hero-inner {
-            position: relative;
-            z-index: 1;
+            padding: 3.5rem 0 2rem;
         }
 
         .eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
             text-transform: uppercase;
-            color: var(--brand);
-            margin-bottom: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            line-height: 1.05;
+            font-size: clamp(2.3rem, 5vw, 3.6rem);
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -0.03em;
             color: var(--heading);
-            margin-bottom: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .hero-copy {
-            max-width: 60ch;
-            font-size: 1.02rem;
+            max-width: 70ch;
+            font-size: 1.06rem;
             color: var(--text-muted);
         }
 
         .meta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.4rem;
+            gap: 0.65rem;
+            margin-top: 1.5rem;
         }
 
         .meta-chip {
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem;
-            padding: 0.55rem 0.8rem;
+            gap: 0.4rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 999px;
-            background: var(--card-strong);
+            background: var(--surface);
             border: 1px solid var(--line);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
         }
 
         .content-card {
-            margin-top: 1.25rem;
-            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
         }
 
         .summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 0.9rem;
-            margin-bottom: 1.6rem;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .summary-tile {
-            background: var(--card-strong);
+            background: var(--surface-strong);
             border: 1px solid var(--line);
-            border-radius: 20px;
-            padding: 1rem 1.05rem;
+            border-radius: 18px;
+            padding: 1.1rem 1.15rem;
         }
 
         .summary-tile h2 {
-            margin: 0 0 0.35rem;
-            font-size: 0.9rem;
+            margin: 0 0 0.45rem;
+            font-size: 0.98rem;
+            font-weight: 600;
             color: var(--heading);
         }
 
         .summary-tile p {
-            font-size: 0.93rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
         }
 
         .toc {
-            background: linear-gradient(180deg, var(--brand-soft), transparent);
+            background: var(--surface-strong);
             border: 1px solid var(--line);
-            border-radius: 22px;
-            padding: 1rem 1.15rem;
-            margin-bottom: 1.6rem;
+            border-radius: 18px;
+            padding: 1.15rem 1.2rem;
+            margin-bottom: 2rem;
         }
 
         .toc-title {
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.96rem;
+            font-weight: 600;
             color: var(--heading);
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
         }
 
         .toc ul {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 0.45rem 0.9rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.55rem 1rem;
         }
 
         .toc a {
-            color: var(--text);
+            color: var(--heading);
             text-decoration: none;
             font-size: 0.95rem;
         }
 
         .toc a:hover {
-            color: var(--brand);
+            color: var(--accent);
         }
 
         section + section {
-            margin-top: 1.7rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
         }
 
         h2.section-title {
-            font-size: 1.18rem;
+            font-size: 1.4rem;
             line-height: 1.25;
+            font-weight: 600;
+            letter-spacing: -0.01em;
             color: var(--heading);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.8rem;
         }
 
         p,
         li {
             color: var(--text-muted);
-            font-size: 0.98rem;
+            font-size: 1rem;
         }
 
         p + p {
-            margin-top: 0.75rem;
+            margin-top: 0.9rem;
         }
 
         ul {
-            padding-left: 1.2rem;
-            margin-top: 0.75rem;
+            padding-left: 1.25rem;
+            margin-top: 0.85rem;
         }
 
         li + li {
-            margin-top: 0.55rem;
+            margin-top: 0.65rem;
         }
 
         .callout {
-            border-left: 4px solid var(--brand);
-            background: var(--card-strong);
-            border-radius: 0 18px 18px 0;
+            border-left: 3px solid var(--accent);
+            background: var(--accent-soft);
+            border-radius: 0 16px 16px 0;
             padding: 1rem 1.1rem;
-            margin-top: 0.95rem;
+            margin-top: 1rem;
         }
 
         .callout strong {
@@ -238,20 +215,21 @@
         }
 
         a {
-            color: var(--brand);
+            color: var(--accent);
+            text-underline-offset: 0.18em;
         }
 
         .contact-card {
             margin-top: 1.2rem;
-            background: var(--card-strong);
+            background: var(--surface-strong);
             border: 1px solid var(--line);
-            border-radius: 20px;
+            border-radius: 18px;
             padding: 1rem 1.1rem;
         }
 
         .footer {
             margin-top: 2rem;
-            padding-top: 1.2rem;
+            padding-top: 1.4rem;
             border-top: 1px solid var(--line);
             font-size: 0.9rem;
             color: var(--text-muted);
@@ -263,13 +241,16 @@
 
         @media (max-width: 640px) {
             body {
-                padding: 1rem 0.8rem 2rem;
+                padding: 0 0.85rem 2rem;
             }
 
-            .hero,
+            .hero {
+                padding: 2.2rem 0 1.5rem;
+            }
+
             .content-card {
-                border-radius: 24px;
-                padding: 1.4rem;
+                border-radius: 20px;
+                padding: 1.35rem;
             }
 
             .summary,
@@ -280,43 +261,42 @@
     </style>
 </head>
 <body>
-    <div class="page">
-        <div class="hero">
-            <div class="hero-inner">
-                <div class="eyebrow">CarOtter Privacy Policy</div>
-                <h1>Your data stays with you.</h1>
-                <p class="hero-copy">
-                    CarOtter is designed to keep your car data on your device whenever possible.
-                    We do not run our own analytics or cloud storage for this app, and we do not
-                    sell your personal information.
-                </p>
-                <div class="meta-row">
-                    <div class="meta-chip">Last updated: March 29, 2026</div>
-                    <div class="meta-chip">No analytics</div>
-                    <div class="meta-chip">No ad tracking</div>
-                    <div class="meta-chip">No cloud sync</div>
-                </div>
+    <main class="page">
+        <header class="hero">
+            <div class="eyebrow">CarOtter</div>
+            <h1>Privacy Policy</h1>
+            <p class="hero-copy">
+                This Privacy Policy describes how CarOtter collects, uses, stores, and shares
+                information when you use the app on iPhone or iPad. CarOtter is designed to keep
+                as much information on your device as possible and to be transparent about the
+                limited situations in which data is sent to third-party services at your direction.
+            </p>
+            <div class="meta-row">
+                <div class="meta-chip">Updated March 29, 2026</div>
+                <div class="meta-chip">On-device by default</div>
+                <div class="meta-chip">No advertising or tracking</div>
+                <div class="meta-chip">No CarOtter cloud storage</div>
             </div>
-        </div>
+        </header>
 
-        <div class="content-card">
+        <article class="content-card">
             <div class="summary">
                 <div class="summary-tile">
-                    <h2>Stored on device</h2>
-                    <p>Vehicle details, service records, fuel logs, chat history, and most diagnostics stay on your iPhone or iPad.</p>
+                    <h2>On-device by default</h2>
+                    <p>Vehicle details, service records, fuel logs, chat history, and most diagnostics remain on your iPhone or iPad.</p>
                 </div>
                 <div class="summary-tile">
-                    <h2>Leaves the device only when needed</h2>
-                    <p>That can happen for AI provider requests, VIN decoding with NHTSA, and voice transcription through Apple's speech services.</p>
+                    <h2>Third-party services only when used</h2>
+                    <p>Data is sent off device only for features you choose to use, such as AI features, VIN decoding with NHTSA, or speech transcription through Apple.</p>
                 </div>
                 <div class="summary-tile">
-                    <h2>Under your control</h2>
+                    <h2>Controls and deletion</h2>
                     <p>You can export supported data, delete categories individually, or erase all app data from the in-app data controls.</p>
                 </div>
             </div>
 
             <div class="toc" aria-label="Privacy policy sections">
-                <div class="toc-title">Quick navigation</div>
+                <div class="toc-title">Contents</div>
                 <ul>
                     <li><a href="#collect">1. Information we collect</a></li>
                     <li><a href="#permissions">2. Permissions and device access</a></li>
@@ -331,7 +311,7 @@
                 </ul>
             </div>
 
-            <div id="collect">
+            <section id="collect">
                 <h2 class="section-title">1. Information we collect</h2>
                 <p>When you use CarOtter, the following information may be collected and stored locally on your device:</p>
                 <ul>
@@ -343,9 +323,9 @@
                     <li><strong>Images you choose to use</strong>: receipt photos, vehicle photos, and camera scans used for VIN, odometer, or service-document extraction.</li>
                     <li><strong>Voice input</strong>: live microphone audio used to turn speech into text when you use voice input.</li>
                 </ul>
-            </div>
+            </section>
 
-            <div id="permissions">
+            <section id="permissions">
                 <h2 class="section-title">2. Permissions and device access</h2>
                 <p>CarOtter asks for device permissions only when a feature needs them:</p>
                 <ul>
@@ -355,50 +335,53 @@
                     <li><strong>Microphone</strong>: to capture live audio when you use voice input.</li>
                     <li><strong>Speech Recognition</strong>: to convert your speech to text for the chat composer.</li>
                 </ul>
-            </div>
+            </section>
 
-            <div id="leaves-device">
+            <section id="leaves-device">
                 <h2 class="section-title">3. When data leaves your device</h2>
                 <p>CarOtter is built so most data stays on your device. Data may leave your device only in these situations:</p>
                 <ul>
-                    <li><strong>AI chat requests</strong>: if you enable the AI assistant and provide your own API key, your prompt, chat context, and relevant vehicle context are sent directly from your device to the provider you choose, currently OpenAI or Google Gemini.</li>
+                    <li><strong>AI-powered features</strong>: if you enable the AI assistant or optional cloud document review and provide your own API key, the content needed for that feature may be sent directly from your device to the provider you choose, currently OpenAI or Google Gemini. This can include prompts, chat context, relevant vehicle context, selected images, OCR text, and redacted service-document previews that you review before sending.</li>
                     <li><strong>VIN decoding</strong>: when you use VIN lookup, the VIN is sent to the National Highway Traffic Safety Administration (NHTSA) vPIC service to decode vehicle details.</li>
                     <li><strong>Voice transcription</strong>: when you use voice input, audio or transcription data may be processed by Apple's speech recognition services depending on device capability, language support, and iOS behavior. CarOtter does not store raw audio after transcription.</li>
                 </ul>
+                <p>Many document and image extraction flows can also run locally on your device. When a feature is completed on-device, the underlying document, image, and extracted text do not leave your device unless you later choose a cloud-assisted option.</p>
                 <div class="callout">
-                    <strong>Important:</strong> We do not operate our own backend for CarOtter app data. We do not upload your profile, service history, fuel history, or diagnostics to our own servers.
+                    <strong>Important:</strong> CarOtter does not operate its own cloud backend for app data. Your profile, service history, fuel history, and diagnostics are not uploaded to CarOtter servers.
                 </div>
-            </div>
+            </section>
 
-            <div id="use">
+            <section id="use">
                 <h2 class="section-title">4. How we use information</h2>
                 <p>We use your information only to provide the features you ask the app to perform, including:</p>
                 <ul>
                     <li>displaying your vehicle profile, service history, fuel history, and diagnostics,</li>
                     <li>running Bluetooth OBD-II diagnostics and readiness checks,</li>
                     <li>scanning VINs, receipts, odometer readings, and service documents,</li>
-                    <li>powering in-app chat responses with the vehicle context you choose to include, and</li>
+                    <li>powering in-app chat responses or optional cloud document review with the context you choose to include, and</li>
                     <li>letting you review, export, or delete supported app data.</li>
                 </ul>
-            </div>
+            </section>
 
-            <div id="security">
+            <section id="security">
                 <h2 class="section-title">5. Storage and security</h2>
                 <ul>
                     <li>Most app data is stored on-device using iOS file protection.</li>
                     <li>Sensitive values such as your AI API key and Apple authentication anchor are stored in the iOS Keychain.</li>
                     <li>OBD debug logs are stored in the device cache area and excluded from backups.</li>
+                    <li>On-device records remain there until you delete them, erase app data, or remove the app.</li>
+                    <li>If you choose an external AI provider, any data sent to that provider is handled under that provider's own terms, privacy policy, and retention practices. CarOtter does not keep a separate cloud copy.</li>
                     <li>We do not use our own cloud database or analytics platform for app data storage.</li>
                 </ul>
-            </div>
+            </section>
 
-            <div id="sharing">
+            <section id="sharing">
                 <h2 class="section-title">6. Sharing and selling</h2>
                 <p>We do not sell your personal information. We do not share your personal information for advertising, cross-app tracking, or marketing profiling.</p>
                 <p>The only third parties that may receive data are the external services you explicitly use through the app, such as your selected AI provider, NHTSA VIN decoding, or Apple's speech recognition services.</p>
-            </div>
+            </section>
 
-            <div id="controls">
+            <section id="controls">
                 <h2 class="section-title">7. Your controls</h2>
                 <p>CarOtter includes in-app controls so you can manage your data:</p>
                 <ul>
@@ -407,31 +390,31 @@
                     <li><strong>Erase all data</strong>: you can wipe all app data stored by CarOtter from your device.</li>
                     <li><strong>Sign out</strong>: signing out requires re-authentication, but local data is preserved unless you choose to erase it.</li>
                 </ul>
-            </div>
+            </section>
 
-            <div id="children">
+            <section id="children">
                 <h2 class="section-title">8. Children's privacy</h2>
                 <p>CarOtter is not directed to children under 13, and we do not knowingly collect personal information from children under 13.</p>
-            </div>
+            </section>
 
-            <div id="changes">
+            <section id="changes">
                 <h2 class="section-title">9. Changes to this policy</h2>
                 <p>If this policy changes, we will update this page and revise the "Last updated" date at the top of the document.</p>
-            </div>
+            </section>
 
-            <div id="contact">
+            <section id="contact">
                 <h2 class="section-title">10. Contact</h2>
                 <p>If you have questions about this privacy policy or how CarOtter handles data, contact:</p>
                 <div class="contact-card">
                     <p><strong>Email:</strong> <a href="mailto:divyanshugoyal.g25@gmail.com">divyanshugoyal.g25@gmail.com</a></p>
                 </div>
-            </div>
+            </section>
 
-            <div class="footer">
+            <footer class="footer">
                 <p>CarOtter Privacy Policy</p>
                 <p>Effective date: March 29, 2026</p>
-            </div>
-        </div>
-    </div>
+            </footer>
+        </article>
+    </main>
 </body>
 </html>

@@ -3,320 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CarOtter legal pages, including Privacy Policy and Terms of Service.">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="CarOtter is the AI car companion for iPhone: plain answers to warning lights, live OBD-II diagnostics, a smog check before you pay, and a service and fuel log that never forgets. Everything stays on your phone.">
+    <meta name="theme-color" content="#00354d">
+    <meta property="og:title" content="CarOtter: Your car, decoded.">
+    <meta property="og:description" content="Plain answers to warning lights, live diagnostics, and a logbook that never forgets. All on your iPhone.">
+    <meta property="og:image" content="assets/screens/04-home.jpg">
     <link rel="icon" href="assets/carotter-logo.png">
-    <title>CarOtter Legal</title>
+    <title>CarOtter: Your car, decoded.</title>
     <style>
         :root {
-            color-scheme: light dark;
-            --bg: #ffffff;
-            --surface: #ffffff;
-            --surface-soft: #f5f5f7;
-            --text: #1d1d1f;
-            --text-muted: #6e6e73;
-            --line: rgba(29, 29, 31, 0.12);
-            --accent: #0a84ff;
-            --accent-soft: rgba(10, 132, 255, 0.08);
+            --top: #0d4664;          /* navy, lit from above (the App Store canvas) */
+            --bottom: #041722;
+            --cream: #fbf7f2;
+            --cream-soft: rgba(251, 247, 242, 0.74);
+            --cream-faint: rgba(251, 247, 242, 0.10);
+            --accent: #f47a51;       /* otterOrange, as the App Store divider */
+            --accent-ink: #1d0e08;
+            --card: rgba(255, 255, 255, 0.06);
+            --line: rgba(255, 255, 255, 0.10);
+            --radius: 22px;
+            --max: 1080px;
         }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #000000;
-                --surface: #000000;
-                --surface-soft: #111214;
-                --text: #f5f5f7;
-                --text-muted: #a1a1a6;
-                --line: rgba(255, 255, 255, 0.14);
-                --accent: #2997ff;
-                --accent-soft: rgba(41, 151, 255, 0.16);
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
+        /* The text halos and the tilted phones reach past the edges; the
+           page must still only scroll up and down. */
+        html, body { overflow-x: hidden; max-width: 100%; }
+        html { scroll-behavior: smooth; }
         body {
             margin: 0;
-            min-height: 100vh;
-            background: var(--bg);
-            color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
-            line-height: 1.72;
+            color: var(--cream);
+            background: var(--bottom);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
+        /* The wallpaper: the espresso gradient with the doodles on top, the
+           same drawings that sit behind the App Store screenshots. */
+        .paper {
+            position: relative;
+            overflow-x: clip;
+            background: linear-gradient(180deg, var(--top) 0%, #00354d 45%, var(--bottom) 100%);
+        }
+        .paper::before {
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: url("assets/doodles.png") top center / 1400px auto repeat;
+            opacity: 0.12;
+        }
+        /* Words sit in a quiet pool, the way the App Store headline does. */
+        .quiet { position: relative; }
+        .quiet::before { content: ""; position: absolute; inset: -28px -44px; z-index: -1; border-radius: 40px;
+            background: radial-gradient(ellipse at center, rgba(2, 24, 36, 0.78) 0%, rgba(2, 24, 36, 0.5) 45%, rgba(2, 24, 36, 0) 72%); }
+        .paper > main, .paper > header, .paper > footer { isolation: isolate; }
+        .paper > * { position: relative; }
+        a { color: inherit; }
+        img { display: block; max-width: 100%; height: auto; }
+        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
-        a {
-            color: var(--accent);
-            text-decoration-thickness: 0.08em;
-            text-underline-offset: 0.18em;
+        /* Nav */
+        .nav { position: sticky; top: 0; z-index: 10; background: rgba(0, 53, 77, 0.78); backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid var(--line); }
+        .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+        .brand img { width: 34px; height: 34px; border-radius: 9px; }
+        .nav-links { display: flex; gap: 22px; align-items: center; font-size: 15px; }
+        .nav-links a { text-decoration: none; color: var(--cream-soft); }
+        .nav-links a:hover { color: var(--cream); }
+        .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--accent-ink); text-decoration: none; padding: 12px 20px; border-radius: 999px; font-weight: 700; font-size: 15px; transition: transform 0.15s ease, filter 0.15s ease; }
+        .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+        .btn.ghost { background: var(--cream-faint); color: var(--cream); font-weight: 600; }
+        .btn.small { padding: 9px 16px; font-size: 14px; }
+        @media (max-width: 640px) { .nav-links .hide-sm { display: none; } }
+
+        /* Hero: headline, orange divider, phone: the App Store card, opened up */
+        .hero { padding: 76px 0 30px; text-align: center; }
+        h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 14px; font-weight: 800; }
+        .bar { width: 76px; height: 7px; border-radius: 999px; background: var(--accent); margin: 18px auto 22px; }
+        .lede { font-size: clamp(17px, 2.2vw, 20px); color: var(--cream-soft); max-width: 52ch; margin: 0 auto 26px; }
+        .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+        .cta-note { font-size: 14px; color: var(--cream-soft); width: 100%; margin-top: 8px; }
+        .hero-phones { display: flex; justify-content: center; align-items: flex-end; gap: 20px; margin-top: 44px; }
+        .hero-phones .phone:nth-child(1) { transform: translateY(26px) rotate(-6deg); }
+        .hero-phones .phone:nth-child(3) { transform: translateY(26px) rotate(6deg); }
+        @media (max-width: 760px) { .hero-phones .phone:nth-child(1), .hero-phones .phone:nth-child(3) { display: none; } }
+
+        /* Phone: rounded card with the amber glow the screenshots have */
+        .phone { width: min(300px, 76vw); aspect-ratio: 1320 / 2868; border-radius: 42px; background: #0a0a0a; padding: 8px; position: relative; box-shadow: 0 0 0 3px #1f5570, 0 0 60px rgba(244, 122, 81, 0.28), 0 40px 70px -30px rgba(0,0,0,0.8); }
+        .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 35px; }
+        .phone.cut { aspect-ratio: 1320 / 2100; }
+        .phone.cut img { border-radius: 35px 35px 0 0; }
+        .phone.cut { border-radius: 42px 42px 0 0; padding-bottom: 0; overflow: hidden; }
+
+        /* Three promises */
+        .promises { padding: 70px 0 20px; }
+        .promises .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .promise { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+        .promise .glyph { width: 46px; height: 46px; border-radius: 13px; background: rgba(244, 122, 81, 0.16); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
+        .promise .glyph svg { width: 26px; height: 26px; }
+        .promise h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -0.01em; }
+        .promise p { margin: 0; color: var(--cream-soft); font-size: 15px; }
+        @media (max-width: 820px) { .promises .grid { grid-template-columns: 1fr; } }
+
+        /* The walk-through: one screen at a time, in the screenshots' own words */
+        .walk { padding: 60px 0 10px; }
+        .section-title { text-align: center; margin: 0 auto 10px; }
+        .section-title h2 { font-size: clamp(30px, 4.6vw, 46px); letter-spacing: -0.03em; line-height: 1.08; margin: 0 0 10px; font-weight: 800; }
+        .section-title p { color: var(--cream-soft); font-size: 17px; margin: 0; }
+        .screen { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 60px 0; }
+        .screen:nth-child(odd) .copy { order: 2; }
+        .screen .phone { margin: 0 auto; }
+        .screen .kicker { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+        .screen h3 { font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -0.025em; line-height: 1.08; margin: 8px 0 12px; font-weight: 800; }
+        .screen h3::after { content: ""; display: block; width: 56px; height: 5px; border-radius: 999px; background: var(--accent); margin-top: 14px; }
+        .screen p { color: var(--cream-soft); font-size: 17px; margin: 0 0 14px; max-width: 46ch; }
+        .screen ul { margin: 0; padding: 0; list-style: none; color: var(--cream-soft); font-size: 15px; }
+        .screen li { padding-left: 24px; position: relative; margin: 6px 0; }
+        .screen li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+        @media (max-width: 820px) {
+            .screen { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+            .screen:nth-child(odd) .copy { order: 0; }
         }
 
-        .page {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 28px 20px 56px;
-        }
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
 
-        .site-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid var(--line);
-        }
+        /* Private by design */
+        .private { padding: 70px 0; }
+        .private .box { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: clamp(24px, 4vw, 44px); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center; }
+        .private h2 { font-size: clamp(30px, 4.6vw, 46px); letter-spacing: -0.03em; line-height: 1.08; margin: 0 0 12px; font-weight: 800; }
+        .private p { color: var(--cream-soft); font-size: 17px; margin: 0 0 12px; max-width: 48ch; }
+        .private a { color: var(--accent); }
+        .points { display: grid; gap: 12px; }
+        .point { background: rgba(0,0,0,0.25); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+        .point strong { display: block; margin-bottom: 4px; }
+        .point span { color: var(--cream-soft); font-size: 15px; }
+        @media (max-width: 820px) { .private .box { grid-template-columns: 1fr; } }
 
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            color: inherit;
-            text-decoration: none;
-        }
+        /* Questions */
+        .faq { padding: 20px 0 40px; }
+        .faq .list { max-width: 720px; margin: 20px auto 0; }
+        details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+        summary { cursor: pointer; font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: "+"; color: var(--accent); font-size: 22px; font-weight: 400; flex: none; }
+        details[open] summary::after { content: "–"; }
+        details p { color: var(--cream-soft); margin: 10px 0 0; font-size: 15px; max-width: 64ch; }
 
-        .brand-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: block;
-            flex-shrink: 0;
-        }
+        /* Get it */
+        .get { padding: 30px 0 80px; text-align: center; }
+        .get h2 { font-size: clamp(30px, 4.6vw, 46px); letter-spacing: -0.03em; margin: 0 0 8px; font-weight: 800; }
+        .get p { color: var(--cream-soft); margin: 0 0 20px; }
 
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-        }
-
-        .brand-name {
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            color: var(--text);
-        }
-
-        .brand-subtitle {
-            font-size: 0.86rem;
-            color: var(--text-muted);
-        }
-
-        .nav {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .nav a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 36px;
-            padding: 0 12px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            background: var(--surface);
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .nav a:hover {
-            color: var(--text);
-            background: var(--accent-soft);
-        }
-
-        .nav a[aria-current="page"] {
-            color: var(--text);
-            background: var(--accent-soft);
-        }
-
-        .hero {
-            padding: 34px 0 28px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: clamp(2.35rem, 6vw, 3.55rem);
-            line-height: 1.06;
-            letter-spacing: -0.035em;
-            font-weight: 700;
-        }
-
-        .lede {
-            margin-top: 18px;
-            font-size: 1.08rem;
-            color: var(--text-muted);
-        }
-
-        .notice {
-            margin-top: 22px;
-            padding: 16px 18px;
-            border-radius: 16px;
-            background: var(--accent-soft);
-            border: 1px solid var(--line);
-            color: var(--text-muted);
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            padding-top: 10px;
-        }
-
-        .card {
-            display: block;
-            padding: 22px;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            background: var(--surface-soft);
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .card:hover {
-            border-color: var(--accent);
-        }
-
-        .card-label {
-            font-size: 0.88rem;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .card-title {
-            margin-top: 10px;
-            font-size: 1.35rem;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .card-copy {
-            margin-top: 10px;
-            font-size: 0.98rem;
-            color: var(--text-muted);
-        }
-
-        .footer {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 20px;
-            padding-top: 28px;
-            margin-top: 28px;
-            border-top: 1px solid var(--line);
-        }
-
-        .footer-meta {
-            color: var(--text-muted);
-            font-size: 0.94rem;
-        }
-
-        .footer-meta p + p {
-            margin-top: 6px;
-        }
-
-        @media (max-width: 640px) {
-            .page {
-                padding: 20px 16px 40px;
-            }
-
-            .site-header,
-            .footer {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav {
-                gap: 14px;
-            }
-
-            .hero {
-                padding: 28px 0 22px;
-            }
-
-            h1 {
-                font-size: 2.4rem;
-            }
-
-            .lede {
-                font-size: 1rem;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-        }
+        footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--cream-soft); font-size: 14px; }
+        footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+        footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+        footer a { color: var(--cream-soft); text-decoration: none; }
+        footer a:hover { color: var(--cream); text-decoration: underline; }
     </style>
 </head>
 <body>
-    <main class="page">
-        <header class="site-header">
-            <div class="brand" aria-label="CarOtter Legal">
-                <img class="brand-logo" src="assets/carotter-logo.png" alt="CarOtter logo">
-                <span class="brand-text">
-                    <span class="brand-name">CarOtter</span>
-                    <span class="brand-subtitle">Legal</span>
-                </span>
-            </div>
-            <nav class="nav" aria-label="Legal">
-                <a href="index.html" aria-current="page">Home</a>
-                <a href="privacy-policy.html">Privacy</a>
-                <a href="terms-of-service.html">Terms</a>
+<div class="paper">
+    <header class="nav">
+        <div class="wrap">
+            <a class="brand" href="#top"><img src="assets/carotter-logo.png" alt="">CarOtter</a>
+            <nav class="nav-links">
+                <a class="hide-sm" href="#how">How it works</a>
+                <a class="hide-sm" href="#privacy">Privacy</a>
+                <a class="hide-sm" href="#faq">Questions</a>
+                <a class="btn small" href="#get">Get the app</a>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <section class="hero" aria-labelledby="legal-title">
-            <h1 id="legal-title">Legal</h1>
-            <p class="lede">
-                CarOtter's legal pages live here. Use the links below to review how information is
-                handled in the app and the terms that apply when you use CarOtter.
-            </p>
-            <div class="notice">
-                CarOtter is currently offered as a free app. It does not operate a developer-hosted
-                backend for routine app data. The Privacy Policy and Terms of Service are provided
-                here for app distribution, TestFlight, and public reference.
+    <main id="top">
+        <section class="hero">
+            <div class="wrap">
+                <div class="quiet">
+                <h1 class="reveal in">Your car, decoded.</h1>
+                <div class="bar"></div>
+                <p class="lede reveal in">Check engine light on? Ask in plain English. Live readings from a Bluetooth OBD-II adapter, a smog check before you pay for one, and a service and fuel log that never forgets. All of it kept on your iPhone.</p>
+                <div class="cta-row reveal in">
+                    <a class="btn" href="#get">Get the app</a>
+                    <a class="btn ghost" href="#how">See how it works</a>
+                    <span class="cta-note">Free · No ads · No tracking · iPhone and iPad, iOS 16 or later</span>
+                </div>
+                </div>
+                <div class="hero-phones">
+                    <div class="phone cut reveal in"><img src="assets/screens/01-chat.jpg" alt="Chat explaining a P0420 code" width="640" height="1391"></div>
+                    <div class="phone cut reveal in"><img src="assets/screens/04-home.jpg" alt="Home: your garage, health, fuel and maintenance at a glance" width="640" height="1391"></div>
+                    <div class="phone cut reveal in"><img src="assets/screens/03-diagnostics.jpg" alt="Diagnostics with saved readings" width="640" height="1391"></div>
+                </div>
             </div>
         </section>
 
-        <section class="cards" aria-label="Legal pages">
-            <a class="card" href="privacy-policy.html">
-                <div class="card-label">Privacy</div>
-                <div class="card-title">Privacy Policy</div>
-                <div class="card-copy">
-                    Learn what information CarOtter stores on-device, when information may be sent
-                    directly from your device to third-party services, and what controls you have.
+        <section class="promises">
+            <div class="wrap grid">
+                <div class="promise reveal">
+                    <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5z"/><path d="M8.5 10h.01M12 10h.01M15.5 10h.01"/></svg></div>
+                    <h3>Plain answers to scary lights</h3>
+                    <p>Type the code or just describe what you see. The assistant knows your car and says whether it's safe to drive and what to fix first.</p>
                 </div>
-            </a>
-            <a class="card" href="terms-of-service.html">
-                <div class="card-label">Terms</div>
-                <div class="card-title">Terms of Service</div>
-                <div class="card-copy">
-                    Review the app license, safety and diagnostic disclaimers, third-party service
-                    terms, and the limitations that apply to using CarOtter.
+                <div class="promise reveal">
+                    <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 17.5a8.5 8.5 0 1 1 15 0"/><path d="M12 14l4-4.5"/><circle cx="12" cy="14" r="1.3"/><path d="M5.5 13h1.5M17 13h1.5M12 6v1.5"/></svg></div>
+                    <h3>See what your car sees</h3>
+                    <p>Plug in a Bluetooth OBD-II adapter for live gauges, trouble codes explained, trends over every drive, and a smog check before you pay for the real one.</p>
                 </div>
-            </a>
+                <div class="promise reveal">
+                    <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5a4.5 4.5 0 0 0-4.1 6.4L4 17.3a1.8 1.8 0 0 0 2.6 2.6l6.4-6.4a4.5 4.5 0 0 0 6.4-4.1l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div>
+                    <h3>A logbook that never forgets</h3>
+                    <p>Service visits, fill-ups, real MPG and what the car really costs. Scan a receipt and it's filed for you.</p>
+                </div>
+            </div>
         </section>
 
-        <footer class="footer">
-            <div class="brand" aria-label="CarOtter Legal footer">
-                <img class="brand-logo" src="assets/carotter-logo.png" alt="CarOtter logo">
-                <span class="brand-text">
-                    <span class="brand-name">CarOtter</span>
-                    <span class="brand-subtitle">Vehicle companion for iPhone and iPad</span>
-                </span>
+        <section class="walk" id="how">
+            <div class="wrap">
+                <div class="section-title reveal quiet">
+                    <h2>How it works</h2>
+                    <p>The first ten minutes with CarOtter.</p>
+                </div>
+
+                <div class="screen">
+                    <div class="phone reveal"><img src="assets/screens/01-chat.jpg" alt="Chat about a check engine light" loading="lazy" width="640" height="1391"></div>
+                    <div class="copy reveal quiet">
+                        <div class="kicker">Ask</div>
+                        <h3>Check engine light? Get plain-English answers</h3>
+                        <p>Tell CarOtter what the dash is showing. It answers with your car's make, year and latest readings in mind, and says how urgent it is.</p>
+                        <ul><li>Type or talk</li><li>Runs on your iPhone with Apple Intelligence, or bring your own key for a cloud model</li></ul>
+                    </div>
+                </div>
+
+                <div class="screen">
+                    <div class="phone reveal"><img src="assets/screens/03-diagnostics.jpg" alt="Diagnostics hub with saved readings" loading="lazy" width="640" height="1391"></div>
+                    <div class="copy reveal quiet">
+                        <div class="kicker">Diagnostics</div>
+                        <h3>Plug into the OBD port. Your car, decoded.</h3>
+                        <p>Any ELM327-style Bluetooth adapter will do. Live gauges you can arrange, trouble codes explained in plain words, and trends over every drive.</p>
+                        <ul><li>45+ readings, from RPM to coolant temperature</li><li>Readings are saved, so the last drive is there without the adapter</li></ul>
+                    </div>
+                </div>
+
+                <div class="screen">
+                    <div class="phone reveal"><img src="assets/screens/02-smog.jpg" alt="Smog check with all eight monitors passed" loading="lazy" width="640" height="1391"></div>
+                    <div class="copy reveal quiet">
+                        <div class="kicker">Smog</div>
+                        <h3>Know you'll pass smog before you pay for the test</h3>
+                        <p>Every readiness monitor, checked. See what's still pending, what a full drive cycle will clear, and whether the car is ready today.</p>
+                    </div>
+                </div>
+
+                <div class="screen">
+                    <div class="phone reveal"><img src="assets/screens/04-home.jpg" alt="Home screen with health, fuel and maintenance" loading="lazy" width="640" height="1391"></div>
+                    <div class="copy reveal quiet">
+                        <div class="kicker">Home</div>
+                        <h3>Your whole car, at a glance</h3>
+                        <p>Health, fuel and maintenance on one screen, with whatever needs attention first. More than one car? Each gets its own garage.</p>
+                    </div>
+                </div>
+
+                <div class="screen">
+                    <div class="phone reveal"><img src="assets/screens/05-fuel.jpg" alt="Fuel log with average MPG and monthly cost" loading="lazy" width="640" height="1391"></div>
+                    <div class="copy reveal quiet">
+                        <div class="kicker">Fuel</div>
+                        <h3>Every fill-up tracked. Real MPG, real costs.</h3>
+                        <p>Log a fill-up in seconds, or scan the receipt and let the numbers fill themselves in. See what the car actually costs to run, month by month.</p>
+                    </div>
+                </div>
+
+                <div class="screen">
+                    <div class="phone reveal"><img src="assets/screens/06-service.jpg" alt="Service history with visits and spend" loading="lazy" width="640" height="1391"></div>
+                    <div class="copy reveal quiet">
+                        <div class="kicker">Service</div>
+                        <h3>Service history that never forgets</h3>
+                        <p>Visits, cost and mileage in one place, with a nudge when the next one is due. Scan a service document and the details are pulled out for you.</p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-meta">
-                <p>CarOtter Legal</p>
+        </section>
+
+        <section class="private" id="privacy">
+            <div class="wrap">
+                <div class="box">
+                    <div class="reveal">
+                        <h2>Private by design.<br>Your car's data stays yours.</h2>
+                        <p>No CarOtter server, no analytics, no ads. Your garage, readings, chats, receipts and service history live on your phone, protected by iOS file protection, and you can export or erase them any time.</p>
+                        <p>The assistant runs on your iPhone by default. If you add your own OpenAI, Gemini, Claude or Grok key, what you send goes straight from your phone to that provider and nowhere else.</p>
+                        <p><a href="privacy-policy.html">Read the privacy policy</a></p>
+                    </div>
+                    <div class="points reveal">
+                        <div class="point"><strong>Sign in with Apple, nothing more</strong><span>No CarOtter account database. Apple handles the sign-in.</span></div>
+                        <div class="point"><strong>Your key, your provider</strong><span>Cloud AI is optional and uses a key you own. Keys live in the iOS Keychain.</span></div>
+                        <div class="point"><strong>Export or erase in a tap</strong><span>Take your records as JSON, delete by category, or wipe everything from Settings.</span></div>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </section>
+
+        <section class="faq" id="faq">
+            <div class="wrap">
+                <div class="section-title reveal quiet"><h2>Questions</h2></div>
+                <div class="list reveal">
+                    <details>
+                        <summary>Do I need an OBD-II adapter?</summary>
+                        <p>Only for the live parts: gauges, trouble codes, trends and the smog check. Chat, the garage, service history and fuel logging work without one. Any ELM327-style Bluetooth Low Energy adapter that plugs into the OBD-II port works.</p>
+                    </details>
+                    <details>
+                        <summary>Which cars does it work with?</summary>
+                        <p>Any car with an OBD-II port, which is nearly every petrol car sold since 1996 and most diesels since the mid-2000s. Add a car by scanning its VIN or picking the make, year and model.</p>
+                    </details>
+                    <details>
+                        <summary>Is it really free?</summary>
+                        <p>Yes. No subscription, no in-app purchases, no ads; it's made by one independent developer. If you use a cloud AI model with your own key, that provider bills you directly. Apple Intelligence on the phone costs nothing.</p>
+                    </details>
+                    <details>
+                        <summary>Can I trust the advice?</summary>
+                        <p>Treat it as a knowledgeable friend, not a mechanic. It explains codes and readings and tells you how urgent things look, and it always says when something needs a professional. Safety-critical decisions belong with a qualified technician.</p>
+                    </details>
+                    <details>
+                        <summary>Which devices?</summary>
+                        <p>iPhone and iPad on iOS 16 or later. The built-in on-device assistant needs iOS 26 and an Apple Intelligence device; older phones can use a cloud model with your own key.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="get" id="get">
+            <div class="wrap reveal quiet">
+                <h2>Get CarOtter</h2>
+                <p>Coming to the App Store. Questions or feedback? Every message is read.</p>
+                <a class="btn" href="mailto:divyanshugoyal.g25@gmail.com?subject=CarOtter">Email support</a>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="wrap">
+            <div>© 2026 Divyanshu Goyal · CarOtter</div>
+            <nav>
+                <a href="mailto:divyanshugoyal.g25@gmail.com?subject=CarOtter%20support">Support</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+
+    <script>
+        // Sections fade in as they arrive; nothing moves for people who prefer reduced motion.
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const items = document.querySelectorAll('.reveal');
+        if (reduce || !('IntersectionObserver' in window)) {
+            items.forEach(el => el.classList.add('in'));
+        } else {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+            }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+            items.forEach(el => io.observe(el));
+        }
+    </script>
 </body>
 </html>
